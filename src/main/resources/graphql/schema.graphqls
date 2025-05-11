@@ -1,0 +1,24 @@
+type Compte {
+    id: ID!
+    proprietaire: String!
+    solde: Float!
+    type: String!
+}
+
+input CompteInput {
+    id: ID
+    proprietaire: String!
+    solde: Float!
+    type: String!
+}
+
+type Query {
+    recupererComptes: [Compte]
+    recupererCompte(id: ID!): Compte
+}
+
+type Mutation {
+    ajouterCompte(compte: CompteInput!): Compte
+    modifierCompte(id: ID!, compte: CompteInput!): Compte
+    supprimerCompte(id: ID!): Boolean
+}
